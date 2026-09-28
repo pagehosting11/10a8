@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>HW Calendar</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+
+
+    <main>
+
+        <div class="calendar-container">
+
+            <div class="calendar-header">
+
+                <button id="previousMonth">&lt;</button>
+
+                <h2 id="monthYear"></h2>
+
+                <button id="nextMonth">&gt;</button>
+
+            </div>
+
+
+            <div class="weekdays">
+
+                <div>MON</div>
+                <div>TUE</div>
+                <div>WED</div>
+                <div>THU</div>
+                <div>FRI</div>
+                <div>SAT</div>
+                <div>SUN</div>
+
+            </div>
+
+
+            <div id="calendar"></div>
+
+        </div>
+
+    </main>
+
+
+    <!-- EVENT POPUP -->
+
+    <div id="eventOverlay" class="overlay">
+
+        <div class="event-box">
+
+            <button
+                id="closeEvent"
+                class="close-button"
+            >
+                ×
+            </button>
+
+
+            <h2 id="selectedDate"></h2>
+
+
+            <label for="eventType">
+                Type
+            </label>
+
+
+            <select id="eventType">
+
+                <option value="HW">
+                    Homework
+                </option>
+
+                <option value="PROJECT">
+                    Project
+                </option>
+
+            </select>
+
+
+            <label for="eventTitle">
+                Title
+            </label>
+
+
+            <input
+                id="eventTitle"
+                type="text"
+                placeholder="Example: Math homework"
+            >
+
+
+            <label for="eventDescription">
+                Description
+            </label>
+
+
+            <textarea
+                id="eventDescription"
+                placeholder="Add details..."
+            ></textarea>
+
+
+            <button
+                id="saveEvent"
+                class="save-button"
+            >
+                SAVE
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
