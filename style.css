@@ -1,0 +1,505 @@
+/* =========================
+   BASE
+========================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    width: 100%;
+    min-height: 100%;
+
+    font-family: Arial, sans-serif;
+
+    background: #f4f6f8;
+    color: #17202a;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+main {
+    width: 100%;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+
+/* =========================
+   CALENDAR
+========================= */
+
+.calendar-container {
+    width: 100%;
+    min-height: 100vh;
+
+    padding: 24px;
+
+    background: #ffffff;
+
+    border: 1px solid #d8dee6;
+    border-radius: 16px;
+
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+}
+
+
+/* MONTH TITLE */
+
+.calendar-title {
+    text-align: center;
+
+    margin-bottom: 28px;
+
+    font-size: 30px;
+    font-weight: 600;
+
+    color: #17202a;
+}
+
+
+/* NAVIGATION BUTTONS */
+
+.calendar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.calendar-header h2 {
+    font-size: 28px;
+    font-weight: 600;
+    color: #17202a;
+}
+
+.calendar-header button {
+    width: 42px;
+    height: 42px;
+
+    border: 1px solid #d5dbe3;
+    border-radius: 8px;
+
+    background: #ffffff;
+    color: #17202a;
+
+    font-size: 20px;
+
+    cursor: pointer;
+}
+
+.calendar-header button:hover {
+    background: #eef2f7;
+}
+
+
+/* WEEKDAYS */
+
+.weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+
+    margin-bottom: 8px;
+}
+
+.weekdays div {
+    padding: 10px;
+
+    text-align: center;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    color: #64748b;
+}
+
+
+/* =========================
+   CALENDAR GRID
+========================= */
+
+#calendar {
+    display: grid;
+
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+
+    grid-auto-rows: minmax(130px, auto);
+
+    width: 100%;
+
+    border-top: 1px solid #dce2e8;
+    border-left: 1px solid #dce2e8;
+
+    overflow: visible;
+}
+
+
+/* DAY */
+
+.day {
+    min-width: 0;
+    min-height: 130px;
+
+    height: auto;
+
+    padding: 10px;
+
+    background: #ffffff;
+
+    border-right: 1px solid #dce2e8;
+    border-bottom: 1px solid #dce2e8;
+
+    cursor: pointer;
+
+    overflow: visible;
+
+    transition: background 0.15s;
+}
+
+.day:hover {
+    background: #f8fafc;
+}
+
+
+/* EMPTY DAYS */
+
+.empty {
+    background: #f8fafc;
+
+    cursor: default;
+}
+
+
+/* TODAY */
+
+.today {
+    background: #eef5ff;
+}
+
+
+/* DATE NUMBER */
+
+.day-number {
+    font-size: 17px;
+    font-weight: 600;
+
+    color: #334155;
+}
+
+
+/* =========================
+   EVENT CARDS
+========================= */
+
+.event {
+    position: relative;
+
+    width: 100%;
+    max-width: 100%;
+
+    margin-top: 8px;
+
+    padding: 9px 34px 9px 10px;
+
+    background: #f8fafc;
+
+    border: 1px solid #d7dee8;
+    border-left: 4px solid #4f7cff;
+
+    border-radius: 8px;
+
+    font-size: 15px;
+
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.04);
+
+    overflow: hidden;
+
+    transition:
+        transform 0.15s,
+        box-shadow 0.15s;
+}
+
+.event:hover {
+    transform: translateY(-1px);
+
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+
+/* PROJECT */
+
+.event.project {
+    border-left-color: #9b59b6;
+}
+
+
+/* TYPE */
+
+.event-type {
+    margin-bottom: 2px;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    letter-spacing: 0.5px;
+
+    color: #4f7cff;
+}
+
+.event.project .event-type {
+    color: #9b59b6;
+}
+
+
+/* TITLE */
+
+.event-title {
+    font-size: 15px;
+    font-weight: 700 !important;
+
+    color: #17202a;
+
+    overflow-wrap: anywhere;
+    word-break: break-word;
+}
+
+
+/* DESCRIPTION */
+
+.event-description {
+    margin-top: 4px;
+
+    font-size: 13px;
+
+    color: #64748b;
+
+    white-space: normal;
+
+    overflow-wrap: anywhere;
+    word-break: break-word;
+}
+
+
+/* =========================
+   DELETE BUTTON
+========================= */
+
+.delete-event {
+    position: absolute;
+
+    top: 7px;
+    right: 7px;
+
+    width: 23px;
+    height: 23px;
+
+    padding: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid #d5dbe3;
+    border-radius: 6px;
+
+    background: #ffffff;
+    color: #64748b;
+
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+
+    line-height: 1;
+
+    cursor: pointer;
+
+    z-index: 10;
+
+    transition: 0.15s;
+}
+
+.delete-event:hover {
+    background: #fee2e2;
+    border-color: #fca5a5;
+    color: #dc2626;
+}
+
+
+/* =========================
+   POPUP
+========================= */
+
+.overlay {
+    position: fixed;
+
+    inset: 0;
+
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(15, 23, 42, 0.45);
+
+    z-index: 1000;
+}
+
+.overlay.active {
+    display: flex;
+}
+
+
+/* POPUP BOX */
+
+.event-box {
+    position: relative;
+
+    width: min(450px, calc(100vw - 40px));
+
+    padding: 28px;
+
+    background: #ffffff;
+
+    border: 1px solid #d8dee6;
+    border-radius: 16px;
+
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.18);
+}
+
+
+/* POPUP TITLE */
+
+.event-box h2 {
+    margin: 0 0 22px;
+
+    font-size: 25px;
+    font-weight: 600;
+
+    color: #17202a;
+}
+
+
+/* CLOSE */
+
+.close-button {
+    position: absolute;
+
+    top: 14px;
+    right: 16px;
+
+    width: 32px;
+    height: 32px;
+
+    border: none;
+    border-radius: 8px;
+
+    background: #f1f5f9;
+    color: #64748b;
+
+    font-size: 22px;
+
+    cursor: pointer;
+}
+
+.close-button:hover {
+    background: #e2e8f0;
+}
+
+
+/* LABELS */
+
+.event-box label {
+    display: block;
+
+    margin-top: 15px;
+    margin-bottom: 6px;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    color: #475569;
+}
+
+
+/* INPUTS */
+
+.event-box input,
+.event-box select,
+.event-box textarea {
+    width: 100%;
+
+    padding: 10px 12px;
+
+    border: 1px solid #d5dce5;
+    border-radius: 8px;
+
+    background: #f8fafc;
+    color: #17202a;
+
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+
+    outline: none;
+}
+
+.event-box input:focus,
+.event-box select:focus,
+.event-box textarea:focus {
+    border-color: #4f7cff;
+
+    background: #ffffff;
+
+    box-shadow: 0 0 0 3px rgba(79, 124, 255, 0.12);
+}
+
+
+/* TEXTAREA */
+
+.event-box textarea {
+    min-height: 100px;
+
+    resize: vertical;
+}
+
+
+/* SAVE */
+
+.save-button {
+    width: 100%;
+
+    margin-top: 22px;
+
+    padding: 12px;
+
+    border: none;
+    border-radius: 9px;
+
+    background: #4f7cff;
+    color: #ffffff;
+
+    font-size: 15px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.15s;
+}
+
+.save-button:hover {
+    background: #3b67df;
+}
+.event.project {
+    background: #f5efff;
+    border-color: #d8c4f5;
+    border-left-color: #9b59b6;
+}
+
+.event.project .event-type {
+    color: #8e44ad;
+}
+
+.event.project .event-title {
+    color: #5b2c6f;
+}
